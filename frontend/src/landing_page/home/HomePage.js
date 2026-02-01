@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Hero from './Hero';
 import Awards from './Awards';
 import Stats from './Stats';
@@ -7,19 +7,39 @@ import Education from './Education';
 import OpenAccount from '../OpenAccount';
 import Navbar from '../Navbar';
 import Footer from '../footer';
+
 function HomePage() {
-    return ( 
-        <>
-        
-        <Hero />
-        <Awards />
-        <Stats />
-        <Pricing />
-        <Education />
-        <OpenAccount />
-      
-        </>
-     );
+
+  useEffect(() => {
+
+    const wakeServers = async () => {
+      try {
+        // backend wake
+        await fetch(process.env.REACT_APP_BACKEND_URL);
+
+        // dashboard wake
+        await fetch(process.env.REACT_APP_DASHBOARD_URL);
+
+        console.log("Servers awakened 🚀");
+      } catch (err) {
+        console.log("Wake failed", err);
+      }
+    };
+
+    wakeServers();
+
+  }, []);
+
+  return (
+    <>
+      <Hero />
+      <Awards />
+      <Stats />
+      <Pricing />
+      <Education />
+      <OpenAccount />
+    </>
+  );
 }
 
 export default HomePage;

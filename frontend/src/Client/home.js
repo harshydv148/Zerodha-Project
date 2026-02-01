@@ -19,7 +19,7 @@ useEffect(() => {
 
         // backend verify
         const { data } = await axios.post(
-          "http://localhost:3002/verify",
+          `${process.env.REACT_APP_BACKEND_URL}/verify`,
           {},
           { withCredentials: true }
         );
@@ -32,7 +32,7 @@ useEffect(() => {
 
           //  2 sec baad dashboard redirect
           setTimeout(() => {
-            window.location.href = "http://localhost:3001";
+            window.location.href = `${process.env.REACT_APP_DASHBOARD_URL}`;
           }, 2000);
         } else {
           removeCookie("token");

@@ -15,7 +15,6 @@ const cookieParser = require("cookie-parser");
 const authRoute = require("./Routes/AuthRoute");
 const { MONGO_URL } = process.env;
 
-
 // app.use(cors());
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -204,9 +203,9 @@ app.get("/allHoldings", async(req,res)=>{
   res.json(allHoldings);
 })
 
-app.get("/allWatchlist", async(req,res)=>{
-  let allHoldings = await HoldingsModel.find({});
-  res.json(allHoldings);
+app.get("/allOrders", async(req,res)=>{
+  let allOrders = await OrdersModel.find({});
+  res.json(allOrders);
 })
 
 

@@ -843,3 +843,41 @@ hr {
 }
 
 
+/* table full width */
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+/* header */
+.orders-table thead {
+  border-bottom: 1px solid #e6e6e6;
+}
+
+/* rows divider (🔥 main effect) */
+.orders-table tbody tr {
+  border-bottom: 1px solid #f1f1f1;
+}
+
+/* padding like holdings */
+.orders-table th,
+.orders-table td {
+  padding: 14px 18px;
+  text-align: center;
+}
+
+/* subtle hover */
+.orders-table tbody tr:hover {
+  background: #fafafa;
+}
+
+.orders-table th {
+  font-weight: 500;   /* was bold */
+  color: #666;
+}
+
+.orders-table td {
+  font-weight: 300;
+  color: #333;
+}
