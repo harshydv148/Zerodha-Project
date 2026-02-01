@@ -21,7 +21,7 @@ const MainLayout = () => (
   <>
     <Navbar />
     <Outlet />
-    <Footer />
+    <Footer />  
   </>
 );
 
@@ -43,6 +43,7 @@ root.render(
           <Route path="/pricing" element={<Pricingpage />} />
           <Route path="/support" element={<Supportpage />} />
         </Route>
+
 
         <Route path="*" element={<NotFound />} />
 

@@ -4,7 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const { HoldingsModel } = require("./models/HoldingsModel");
+const { HoldingsModel  } = require("./models/HoldingsModel");
 const { PostionsMode, PositionsModel } = require("./models/PositionsModel");
 const {OrdersModel} = require("./models/OrdersModel");
 const PORT = process.env.PORT || 3002;
@@ -191,7 +191,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: ["http://localhost:3000"],
+    origin: ["http://localhost:3000", "http://localhost:3001"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
@@ -203,6 +203,12 @@ app.get("/allHoldings", async(req,res)=>{
   let allHoldings = await HoldingsModel.find({});
   res.json(allHoldings);
 })
+
+app.get("/allWatchlist", async(req,res)=>{
+  let allHoldings = await HoldingsModel.find({});
+  res.json(allHoldings);
+})
+
 
 app.get("/allPositions" , async(req,res)=>{
   let allPositions = await PositionsModel.find({});
