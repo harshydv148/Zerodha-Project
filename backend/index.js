@@ -2,15 +2,15 @@ require("dotenv").config();
 console.log("JWT_SECRET:", process.env.JWT_SECRET);
 const express = require("express");
 const mongoose = require("mongoose");
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const { HoldingsModel  } = require("./models/HoldingsModel");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const { HoldingsModel } = require("./models/HoldingsModel");
 const { PostionsMode, PositionsModel } = require("./models/PositionsModel");
-const {OrdersModel} = require("./models/OrdersModel");
+const { OrdersModel } = require("./models/OrdersModel");
 const PORT = process.env.PORT || 3002;
 const uri = process.env.MONGO_URL;
 require("dotenv").config();
-const app = express();  
+const app = express();
 const cookieParser = require("cookie-parser");
 const authRoute = require("./Routes/AuthRoute");
 const { MONGO_URL } = process.env;
@@ -146,7 +146,6 @@ app.use(express.json());
 //   res.send("done");
 // });
 
-
 // app.get("/addPositions" , async(req,res)=>{
 //   let tempPositions = [
 //   {
@@ -178,7 +177,7 @@ app.use(express.json());
 //     qty: item.qty,
 //     avg: item.avg,
 //     price: item.price,
-//     net: item.net,  
+//     net: item.net,
 //     day: item.day,
 //     isLoss: item.isLoss,
 //   })
@@ -187,42 +186,35 @@ app.use(express.json());
 // res.send("Position saved");
 // })
 
-
-app.use(
-  cors({
-    origin: origin,
-    credentials: true,
-  })
-);
+app.use(cors());
 
 app.use("/", authRoute);
 
-app.get("/allHoldings", async(req,res)=>{
+app.get("/allHoldings", async (req, res) => {
   let allHoldings = await HoldingsModel.find({});
   res.json(allHoldings);
-})
+});
 
-app.get("/allOrders", async(req,res)=>{
+app.get("/allOrders", async (req, res) => {
   let allOrders = await OrdersModel.find({});
   res.json(allOrders);
-})
+});
 
-
-app.get("/allPositions" , async(req,res)=>{
+app.get("/allPositions", async (req, res) => {
   let allPositions = await PositionsModel.find({});
   res.json(allPositions);
-})
+});
 
-app.post("/newOrder" , async(req,res)=>{
+app.post("/newOrder", async (req, res) => {
   let newOrder = new OrdersModel({
     name: req.body.name,
-    qty: req.body.qty ,
+    qty: req.body.qty,
     price: req.body.price,
     mode: req.body.mode,
   });
   newOrder.save();
   res.send("Order saved");
-})
+});
 
 // app.listen(PORT, () => {
 //   console.log("app is listening");
@@ -230,15 +222,11 @@ app.post("/newOrder" , async(req,res)=>{
 //   console.log("DB connected");
 // });
 
-
 mongoose
-  .connect(MONGO_URL, {
-  })
+  .connect(MONGO_URL, {})
   .then(() => console.log("MongoDB is  connected successfully"))
   .catch((err) => console.error(err));
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
-
-
