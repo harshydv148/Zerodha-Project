@@ -190,6 +190,11 @@ app.use(cors());
 
 app.use("/", authRoute);
 
+// health check route (wake server)
+app.get("/", (req, res) => {
+  res.status(200).send("Backend alive ");
+});
+
 app.get("/allHoldings", async (req, res) => {
   let allHoldings = await HoldingsModel.find({});
   res.json(allHoldings);
