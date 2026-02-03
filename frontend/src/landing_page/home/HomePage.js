@@ -11,24 +11,21 @@ import Footer from '../footer';
 function HomePage() {
 
   useEffect(() => {
+  const wakeServers = async () => {
+    try {
+      await Promise.all([
+        fetch(process.env.REACT_APP_BACKEND_URL),   // only wake
+        fetch(process.env.REACT_APP_DASHBOARD_URL)
+      ]);
 
-    const wakeServers = async () => {
-      try {
-        // backend wake
-        await fetch(process.env.REACT_APP_BACKEND_URL);
+      console.log("Servers awakened 🚀");
+    } catch (err) {
+      console.log("wake failed", err);
+    }
+  };
 
-        // dashboard wake
-        await fetch(process.env.REACT_APP_DASHBOARD_URL);
-
-        console.log("Servers awakened 🚀");
-      } catch (err) {
-        console.log("Wake failed", err);
-      }
-    };
-
-    wakeServers();
-
-  }, []);
+  wakeServers();
+}, []);
 
   return (
     <>
