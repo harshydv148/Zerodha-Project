@@ -186,7 +186,13 @@ app.use(express.json());
 // res.send("Position saved");
 // })
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    "http://localhost:3000",
+    "https://zerodha-project-frontend-blush.vercel.app"
+  ],
+  credentials: true
+}));
 
 app.use("/", authRoute);
 
