@@ -6,7 +6,7 @@ function Hero() {
         <div className="col mt-5 mb-5">
           <h2 >Zerodha Products</h2>
           <p className="mt-3 text-muted">Sleek, modern, and intuitive trading platforms</p>
-          <p>Check out our <a href="">investment offerings →</a></p>
+          <p>Check out our <a href="#">investment offerings →</a></p>
         </div>
       </div>
     </div>

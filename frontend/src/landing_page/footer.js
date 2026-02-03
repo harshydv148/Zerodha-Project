@@ -10,34 +10,34 @@ function Footer() {
           </div>
           <div className="col">
             <p>Company</p>
-            <a href="" className="text-decoration-none text-dark">About</a>
+            <a href="#" className="text-decoration-none text-dark">About</a>
             <br></br>
-            <a href="" className="text-decoration-none text-dark">Products</a>
+            <a href="#" className="text-decoration-none text-dark">Products</a>
             <br></br>
-            <a href="" className="text-decoration-none text-dark">Pricing</a>
+            <a href="#" className="text-decoration-none text-dark">Pricing</a>
             <br></br>
-            <a href="" className="text-decoration-none text-dark">Referral programs</a>
+            <a href="#" className="text-decoration-none text-dark">Referral programs</a>
             <br></br>
-            <a href="" className="text-decoration-none text-dark">Careers</a>
+            <a href="#" className="text-decoration-none text-dark">Careers</a>
             <br></br>
-            <a href="" className="text-decoration-none text-dark">Zerodha.tech</a>
+            <a href="#" className="text-decoration-none text-dark">Zerodha.tech</a>
             <br></br>
-            <a href="" className="text-decoration-none text-dark">Open source</a>
+            <a href="#" className="text-decoration-none text-dark">Open source</a>
             <br></br>
           </div>
           <div className="col">
             <p>Support</p>
-            <a href="" className="text-decoration-none text-dark">Contact us</a><br></br>
-            <a href="" className="text-decoration-none text-dark">Support portal</a><br></br>
-            <a href="" className="text-decoration-none text-dark">Z-Connect blog</a><br></br>
-            <a href="" className="text-decoration-none text-dark">List of charges</a><br></br>
-            <a href="" className="text-decoration-none text-dark">Download & resources</a><br></br>
+            <a href="#" className="text-decoration-none text-dark">Contact us</a><br></br>
+            <a href="#" className="text-decoration-none text-dark">Support portal</a><br></br>
+            <a href="#" className="text-decoration-none text-dark">Z-Connect blog</a><br></br>
+            <a href="#" className="text-decoration-none text-dark">List of charges</a><br></br>
+            <a href="#" className="text-decoration-none text-dark">Download & resources</a><br></br>
           </div>
           <div className="col">
             <p>Account</p>
-            <a href="" className="text-decoration-none text-dark">Open An Account</a><br></br>
-            <a href="" className="text-decoration-none text-dark">File transfer</a><br></br>
-            <a href="" className="text-decoration-none text-dark">60 day challenge</a><br></br>
+            <a href="#" className="text-decoration-none text-dark">Open An Account</a><br></br>
+            <a href="#" className="text-decoration-none text-dark">File transfer</a><br></br>
+            <a href="#" className="text-decoration-none text-dark">60 day challenge</a><br></br>
           </div>
         </div>
         <div className="mt-5 text-muted" style={{ fontSize: "0.9rem" }}>
