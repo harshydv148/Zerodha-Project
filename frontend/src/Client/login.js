@@ -35,12 +35,14 @@ const Login = () => {
         {
           ...inputValue,
         },
-        { withCredentials: true }
+        { withCredentials: true },
       );
       console.log(data);
       const { success, message } = data;
       if (success) {
         handleSuccess(message);
+        e.preventDefault();
+        // navigate("/home");
         setTimeout(() => {
           navigate("/home");
         }, 1000);
@@ -81,7 +83,7 @@ const Login = () => {
             onChange={handleOnChange}
           />
         </div>
-        <button type="submit">Submit</button>
+        <button type="button" onClick={handleSubmit}>Submit</button>
         <span>
           Don't have an account? <Link to={"/signup"}>Signup</Link>
         </span>
