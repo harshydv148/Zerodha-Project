@@ -9,42 +9,32 @@ const Home = () => {
   const [cookies, removeCookie] = useCookies(["token"]);
   const [username, setUsername] = useState("");
 useEffect(() => {
-    const verifyCookie = async () => {
-      try {
-        // token nahi → login
-        if (!cookies.token) {
-          navigate("/login");
-          return;
-        }
+  const verifyCookie = async () => {
+    try {
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_BACKEND_URL}/verify`,
+        {},
+        { withCredentials: true }
+      );
 
-        // backend verif
-        const { data } = await axios.post(
-          `${process.env.REACT_APP_BACKEND_URL}/verify`,
-          {},
-          { withCredentials: true }
-        );
+      const { status, user } = data;
 
-        const { status, user } = data;
-
-        if (status) {
-          setUsername(user);
-          toast(`Hello ${user}`, { position: "top-right" });
-
-          //  2 sec baad dashboard redirect
-          setTimeout(() => {
-            window.location.href = `${process.env.REACT_APP_DASHBOARD_URL}`;
-          }, 2000);
-        } else {
-          removeCookie("token");
-          navigate("/login");
-        }
-      } catch (err) {
-        console.log(err);
+      if (status) {
+        setUsername(user);
+        toast(`Hello ${user}`, { position: "top-right" });
+        setTimeout(() => {
+          window.location.href = `${process.env.REACT_APP_DASHBOARD_URL}`;
+        }, 2000);
+      } else {
         navigate("/login");
       }
-    };   
-    verifyCookie();
-  }, );
+    } catch (err) {
+      console.log(err);
+      navigate("/login");
+    }
+  };
+  verifyCookie();
+}, []); // ✅ Empty array
   const Logout = () => {
     removeCookie("token");
     navigate("/signup");
