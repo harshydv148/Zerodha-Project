@@ -228,11 +228,6 @@ app.post("/newOrder", async (req, res) => {
   res.send("Order saved");
 });
 
-// app.listen(PORT, () => {
-//   console.log("app is listening");
-//   mongoose.connect(uri);
-//   console.log("DB connected");
-// });
 
 mongoose
   .connect(MONGO_URL, {})

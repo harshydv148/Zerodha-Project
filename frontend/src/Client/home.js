@@ -17,7 +17,7 @@ useEffect(() => {
           return;
         }
 
-        // backend verify
+        // backend verif
         const { data } = await axios.post(
           `${process.env.REACT_APP_BACKEND_URL}/verify`,
           {},
@@ -44,7 +44,7 @@ useEffect(() => {
       }
     };   
     verifyCookie();
-  }, [cookies, navigate, removeCookie]);
+  }, );
   const Logout = () => {
     removeCookie("token");
     navigate("/signup");
